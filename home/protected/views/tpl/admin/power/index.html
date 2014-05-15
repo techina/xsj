@@ -1,0 +1,82 @@
+<%extends file="../../comm/mbase.html"%> 
+<%block name=title%>操作权限<%/block%> 
+<%block name="tab5"%>class="Selected"<%/block%> 
+<%block name='tabc5'%>display:inline<%/block%> 
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<link href="./css/admin/category.css" rel="stylesheet" type="text/css">
+<%/block%> 
+<%block name='main'%>
+<table class="comm_table">
+	<colgroup>
+		<col width="30%"></col>
+		<col width="20%"></col>
+		<col width="20%"></col>
+		<col width="30%"></col>
+	</colgroup>
+	<thead>
+		<tr>
+			<th colspan="4">操作权限列表</th>
+		</tr>
+	</thead>
+	<tbody id="tbodydom">
+		<tr>
+			<th style="text-align: center;">权限名称</th>
+			<th>操作人</th>
+			<th>修改时间</th>
+			<th>操作</th>
+		</tr>
+		<%foreach from=$info item=p%>
+		<tr class="trpower<%$p.id%>">
+			<td>
+<font color='red'>●&gt;&gt; </font> <span id="curpower<%$p.id%>"><%$p.pname%></span>
+</td>
+<td>
+<%$p.rname%>
+</td>
+<td><%$p.mtime%></td>
+<td>
+[ <a href='javascript:;' onclick="javascript:openedittr(<%$p.id%>)">编辑</a> ]
+[ <a href='javascript:;' onclick="javascript:deletepower(<%$p.id%>)">删除</a> ]
+</td>
+</tr>
+		<tr class="trpower<%$p.id%>" id="trpower<%$p.id%>" style="display:none">
+		<td colspan="4">
+<input type='text' id='pname<%$p.id%>' value="<%$p.pname%>" class='pcont'>
+<a href='javascript:;' onclick="javascript:editpower(<%$p.id%>)" class='editnew'>确定</a>
+		</td>
+		</tr>
+		<%foreachelse%>
+		<tr>
+			<td colspan="4" style="text-align: center">暂时没有数据...</td>
+		</tr>
+		<%/foreach%>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="4"><%$pages%></th>
+		</tr>
+		<tr>
+			<th colspan="4"><a href="javascript:;" id="webinfosubmit"
+				onclick="javascript:opencategory()">添加权限</a></th>
+		</tr>
+		<tr>
+			<td colspan="4">
+			<div class='add-category'>
+			<div class='ptitle'><span style="float: left;">添加权限</span><span
+				style="float: right;"><a href="javascript:;"
+				onclick="javascript:opencategory()">X</a></span></div>
+			<div class='ptitle1'><span id='tip-s'></span></div>
+			<div class='dcont'>
+			<span style="float: left;"><input type="text" id='powername' placeholder="描述名称"></span>
+			<span style="float: left;"><br><input type="text" id='pexec' placeholder="执行名称"></span>
+			<span style="float: left;"><br><a href='javascript:;' onclick="javascript:addpower()">
+			<img src='./image/tijiao.png'></a></span></div>
+			</div>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+<%/block%>

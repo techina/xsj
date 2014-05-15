@@ -1,0 +1,40 @@
+<%extends file="../../comm/hbase.html"%>
+<%block name=title%>发布帖子<%/block%>
+
+<%block name=main%>
+<div class='topjobs'>
+<div class='clearfix'>
+<div class="infodet">
+<form action="./index.php?r=forum/add" method="post" onsubmit="return checkpubtie();">
+                                <input type="hidden" name="un" value="<%$un%>"/>
+                                <table class="re" border="0" style="margin:15px 10px">
+                                <tr><td >
+                                                <label>帖子标题：<input type="text" name="title" id="tiezititle"/></label>
+                                        </td></tr>
+                                    <tr><td style="text-align:left">
+                                            <textarea style="width:650px;height:300px;visibility:visible" name="pubmess" id="pubmess"></textarea></td></tr>
+                                    <tr><td style="text-align: center;">
+                                                <input type="image" src="./image/tijiao.png"/>
+                                        </td></tr>
+                                </table>
+                            </form>
+</div>
+</div>
+</div>
+
+<%/block%>
+<%block name=body_js%>
+<script charset="utf-8" src="./js/cli/info.js" type="text/javascript"></script>
+<script charset="utf-8" src="./ke/kindeditor1.js" type="text/javascript"></script>
+        <script charset="utf-8" src="./ke/lang/zh_CN.js"  type="text/javascript"></script>
+        <script>
+            KindEditor.ready(function(K) {
+                var editor = K.create('textarea[name="pubmess"]', {
+                	uploadJson: './ke/php/upload_json.php',
+                    afterBlur: function() {
+                        this.sync();
+                    }
+                });
+            });
+        </script>
+<%/block%>

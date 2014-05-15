@@ -1,0 +1,45 @@
+<%extends file="../../comm/cbase.html"%>
+<%block name=title%>公告搜索结果<%/block%>
+<%block name=main%>
+<div class="jobnavi">
+<span class='span1'>搜索结果</span>
+<span style='float: left;margin-left: 50px;'>共 <%$count%> 条结果 ( 约<%$timecount%> 秒 )</span>
+<%if $smarty.session.userinfo.userlevel=='admin'%>
+<a href="./index.php?r=admin/notice/post"><span class='span3'>发公告</span></a>
+<%/if%>
+</div>
+<div class='topjobs'>
+<ul class='clearfix'>
+<%section name=us loop=$infolist%>
+<li class='jobinfo'>
+<span style='float:left'>●&nbsp;
+<a href="./index.php?r=notice/info&id=<%$infolist[us].id%>" class="sk"><%$infolist[us].title%></a></span>
+<%if $smarty.session.userinfo.userlevel=='admin'%>
+<span style='float:right;margin-right:20px'>[<a href="javascript:;" onclick="javascript:deletenotice(<%$infolist[us].id%>)">删除</a>]</span><%/if%>
+<span style='float:right;margin-right:20px'><%$infolist[us].ntime%></span>
+<span style='float:right;margin-right:20px'><%$infolist[us].rname%></span>
+</li>
+<%sectionelse%>
+<li class='jobinfo'>
+<span style='margin:auto'>暂时没有更多数据……</span>
+</li>
+<%/section%>
+</ul>
+</div>
+<span id="keywords" style="display: none"><%$kw%></span>
+ 
+<%/block%>
+<%block name=pagelist%>
+<%$pages%>
+<%/block%>
+<%block name=body_js%>
+<script type='text/javascript' src='./js/highlight.js'></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            var query_str = jQuery('#keywords').html();
+            query_str = query_str.trim();
+            query_str = query_str.split(' ');
+            $(".sk").highlight(query_str, {insensitive: 0,hls_class:"pipei"});
+        });
+    </script>
+<%/block%>

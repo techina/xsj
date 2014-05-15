@@ -1,0 +1,51 @@
+<%extends file="../../comm/cbase.html"%>
+<%block name=title%>公告详情<%/block%>
+<%block name=main%>
+<div class="jobnavi">
+<%if $smarty.session.userinfo.userlevel=='admin'%>
+<a href="./index.php?r=admin/notice/post"><span class='span3'>发公告</span></a>
+<%/if%>
+</div>
+<div class='topjobs'>
+<div class='clearfix'>
+<%section name=us loop=$info%>
+<div class="infodet">
+<div class='photo'>
+<img src="<%$info[us].userpic%>" class="up">
+<p><%$info[us].rname%></p>
+</div>
+<div class='forumdet'>
+<div class='ititle'><span class="ftile"><%$info[us].title%></span>
+<span class="flou">
+<%if $smarty.session.userinfo.username==$info[us].username%>
+[<a href="./index.php?r=notice/delr&id=<%$info[us].id%>">删除</a>]<%/if%>
+</span></div>
+<div class='itime'>
+发布于 <%$info[us].ntime%>
+</div>
+<div class='icontent'><%$info[us].content%></div>
+</div>
+</div>
+<%/section%>
+</div>
+</div>
+<div class="jobnavi">
+<span class='span1'>相关文档</span>
+</div>
+<div class='topjobs'>
+<ul class='clearfix'>
+<%section name=us loop=$cinfo%>
+<li class='jobinfo'>
+<span style='float:left'>●&nbsp;
+<a href="./index.php?r=docfile&id=<%$cinfo[us].id%>"><%$cinfo[us].docname%></a></span>
+<span style='float:right;margin-right:20px'><%$cinfo[us].dtime%></span>
+<span style='float:right;margin-right:20px'><%$cinfo[us].rname%></span>
+</li>
+<%sectionelse%>
+<li class='jobinfo'>
+<span style='margin:auto'>暂时没有更多数据……</span>
+</li>
+<%/section%>
+</ul>
+</div>
+<%/block%>

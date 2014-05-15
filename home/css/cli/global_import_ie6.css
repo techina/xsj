@@ -1,0 +1,8 @@
+.header .navi li { width:100px;}
+.subnavi  li { width:50px; }
+.subnavi  li.word4{ width:80px}
+.subnavi  li.word6{ width:100px}
+.subnavi  li.word8{ width:120px}
+#joblist .jobnavi { padding-left:0; margin-left:0}
+#joblist .jobnavi .subnavi #neitui_navi_rec{ margin-left:0px!important}
+body{margin-top:0px}

@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+body{
+    font-family: 微软雅黑
+}
+#namemes,#pwdmes,#againmes,#emailmes,#yanmames {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px
+}
+
+a:hover {
+    text-decoration: underline;;
+    color: black;
+}
+
+a :VISITED {
+    text-decoration: none;;
+    color: blue;
+}
+a {
+    text-decoration: none;
+}
+a img {
+    border: none
+}
+
+.contain {
+    width: 970px;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.top {
+    width: 970px;
+    margin: 0px auto;
+    padding: 0px;
+    float: left;
+    height: 150px;
+}
+
+.bottom1 {
+    width: 970px;
+    margin: 10px auto;
+    padding: 10px;
+    float: left;
+    border-top:1px solid orange 
+}
+.content {
+    width: 970px;
+    float: left;
+}
+
+.field {
+    width: 470px;
+    float: left;
+    margin-left: 70px;
+    float: left;
+}
+
+.td-left {
+    width: 150px;
+    text-align: right;
+    text-indent:0px;
+    float: left;
+    height: 40px;
+    padding:0px;
+    padding-top: 5px;
+    border:0px solid red;
+    line-height: 40px;
+}
+
+.input,#pwd {
+    width: 250px;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #dddddd;
+    font-size: 18px;
+    border-radius: 6px;
+    padding-left: 5px;
+}
+
+.input1 {
+    width: 100px;
+}
+
+.bo {
+    width: 11px;
+    margin-top: 1px;
+    margin-right: 1px;
+    height: 11px;
+    float: left;
+}
+
+.right {
+    width: 13px;
+    margin-top: 8px;
+    margin-left: 10px;
+    height: 13px;
+}
+
+.td-right {
+    width: 600px;
+    float: left;
+    text-indent:0px;
+    height: 40px;
+    padding:0px;
+    padding-top: 5px;
+    border:0px solid red;
+    line-height: 40px;
+}
+.innerhtml {
+    height:28px;
+    text-align:left;
+    float: left;
+    border: 0px solid red;
+}
+
+.td-right-down {
+    float: left;
+    color: #999999;
+    margin-left: 5px;
+    width: 300px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.submit {
+    width: 372px;
+    height: 50px;
+    background: url("../../image/cli/re.fw.png") no-repeat -1px 0px;
+    border: none;
+    cursor: pointer;
+}
+.submit:hover {
+    background: url("../../image/cli/re.fw.png") no-repeat -1px -75px;
+}
+.re-right{
+    float:right;
+    width:200px;
+    height:350px;
+    text-align: center;
+}
+.rr{
+    width:90px;
+    height: 27px;
+    border:none;
+    cursor: pointer;
+}
+

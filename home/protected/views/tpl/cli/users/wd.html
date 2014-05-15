@@ -1,0 +1,31 @@
+<%extends file="../../comm/hbase.html"%>
+<%block name=title%>修改密码<%/block%>
+<%block name=main%>
+<div class="jobnavi">
+<span class='span1'>修改密码</span>
+<a href="./index.php?r=forum/post"><span class='span2'></span></a>
+</div>
+<div class='topjobs'>
+<form id="J_pw_edit" action="./index.php?r=users/wde" method="post" onsubmit="return chpwd()">
+	<div class="profile_ct password_list">
+		<dl class="cc">
+			<dt>原密码：</dt>
+			<dd><input id="J_old_pwd"  name="oldPwd" class="input length_5" type="password"><span id="J_tip_oldPwd"><span class="reg_tips">请输入原密码</span></span></dd>
+		</dl>
+		<dl class="cc">
+			<dt>新密码：</dt>
+			<dd><input id="J_newPwd" name="newPwd" class="input length_5"  type="password"><span id="J_tip_newPwd"><span class="reg_tips">密码最小长度5个字，最大长度15个字</span></span></dd>
+		</dl>
+		<dl class="cc">
+			<dt>确认密码：</dt>
+			<dd><input id="J_rePwd" name="rePwd" class="input length_5" type="password"><span id="J_tip_rePwd"><span class="reg_tips">请再输入一遍您上面填写的密码</span></span></dd>
+		</dl>
+		<dl class="cc">
+			<dt>&nbsp;</dt>
+			<dd><button type="submit" class="btn btn_submit btn_big mr10">提交</button></dd>
+		</dl>
+	</div>
+	</form>
+</div>
+
+<%/block%>

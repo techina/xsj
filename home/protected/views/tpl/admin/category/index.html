@@ -1,0 +1,74 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>角色列表<%/block%>
+<%block name="tab5"%>class="Selected"<%/block%>
+<%block name='tabc5'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<link href="./css/admin/category.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='main'%>
+<table class="comm_table">
+<colgroup>
+<col width="30%"></col>
+<col width="20%"></col>
+<col width="20%"></col>
+<col width="30%"></col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">角色列表</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<tr>
+<th style="text-align: center;">角色名称</th>
+<th>操作人</th>
+<th>操作时间</th>
+<th>操作</th>
+</tr>
+<%foreach from=$info item=p%>
+<tr id="<%$p.id%>">
+<td>
+# <a href="./index.php?r=admin/category/info&id=<%$p.id%>"><%$p.cname%></a>
+</td>
+<td>
+<%$p.rname%>
+</td>
+<td><%$p.mtime%></td>
+<td>
+[ <a href='./index.php?r=admin/category/edit&id=<%$p.id%>'>编辑</a> ]
+[ <a href='javascript:;' onclick="javascript:deletecategory(<%$p.id%>)">删除</a> ]
+</td>
+</tr>
+<%foreachelse%>
+<tr>
+<td colspan="4" style="text-align:center">暂时没有数据...</td>
+</tr>
+<%/foreach%>
+</tbody>
+<tfoot>
+<tr>
+<th colspan="4">
+<%$pages%>
+</th>
+</tr>
+<tr>
+<th colspan="4">
+<a href="javascript:;"  id="webinfosubmit" onclick="javascript:opencategory()">添加角色</a>
+</th>
+</tr>
+<tr>
+<td colspan="4">
+<div class='add-category'>
+<div class='ptitle'><span style="float: left; ">添加角色</span><span style="float: right;"><a href="javascript:;" onclick="javascript:opencategory()">X</a></span></div>
+<div class='ptitle1'><span id='tip-s'></span></div>
+<div class='dcont'><span style="float: left;"><input type="text" id='categoryname'></span>
+<span style="float: left;"><a href='javascript:;' onclick="javascript:addcategory()"><img src='./image/tijiao.png'></a></span></div>
+</div>
+</td>
+</tr>
+</tfoot>
+</table>
+
+
+<%/block%>

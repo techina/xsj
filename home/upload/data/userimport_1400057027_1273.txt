@@ -1,0 +1,15 @@
+a00001,a00001,a00001@qq.com,ordinary,张
+a00002,a00001,a00002@qq.com,ordinary,张
+a00003,a00001,a00003@qq.com,ordinary,张
+a00004,a00001,a00004@qq.com,ordinary,张
+a00005,a00001,a00005@qq.com,ordinary,张
+a00006,a00001,a00006@qq.com,ordinary,张
+a00007,a00001,a00007@qq.com,ordinary,张
+a00008,a00001,a00008@qq.com,ordinary,张
+a00009,a00001,a00009@qq.com,ordinary,张
+a00000,a00001,a00000@qq.com,ordinary,张
+a00010,a00001,a00010@qq.com,ordinary,张
+a00011,a00001,a00011@qq.com,ordinary,张
+a00012,a00001,a00012@qq.com,ordinary,张
+a00013,a00001,a00013@qq.com,ordinary,张
+a00014,a00001,a00014@qq.com,ordinary,张

@@ -1,0 +1,73 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>用户列表<%/block%>
+<%block name="tab3"%>class="Selected"<%/block%>
+<%block name='tabc3'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='main'%>
+<table class="comm_table">
+<colgroup>
+<col width="8%"></col>
+<col width="25%"></col>
+<col width="13%"></col>
+<col width="20%"></col>
+<col width="10%"></col>
+<col width="27%"></col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="6">用户列表</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<tr>
+<th style="text-align: center;"></th>
+<th>用户名</th>
+<th>真实姓名</th>
+<th>邮箱</th>
+<th>状态</th>
+<th>操作</th>
+</tr>
+<%foreach from=$info item=p%>
+<tr id="<%$p.id%>">
+<td>
+<img src="<%$p.userpic%>" width='50px' height='50px'>
+</td>
+<td>
+<a href="./index.php?r=forum&un=<%$p.username%>"><%$p.username%></a>
+</td>
+<td>
+<a href="./index.php?r=forum&un=<%$p.username%>"><%$p.rname%></a>
+</td>
+<td><%$p.useremail%></td>
+<td><%if $p.islock==1%>已锁定<%else%>正常<%/if%></td>
+<td>
+<%if $p.isapply==1%>
+<span id="apply<%$p.id%>">[ <a href='javascript:;' onclick="javascript:markpwd(<%$p.id%>)" >重置密码</a> ] </span><%/if%>
+[ <a href='./index.php?r=admin/psys&un=<%$p.username%>' target="_blank">角色管理</a> ]
+<%if $p.islock==0%>
+[ <a href='javascript:;' onclick="javascript:marklock(<%$p.id%>,1)">锁定</a> ] <%else%>
+[ <a href='javascript:;' onclick="javascript:marklock(<%$p.id%>,0)">解锁</a> ] <%/if%>
+[ <a href='javascript:;' onclick="javascript:deleteuser(<%$p.id%>)">删除</a> ]
+</td>
+</tr>
+<%foreachelse%>
+<tr>
+<td colspan="6" style="text-align:center">暂时没有数据...</td>
+</tr>
+<%/foreach%>
+</tbody>
+<tfoot>
+<tr>
+<th colspan="6">
+<%$pages%>
+</th>
+</tr>
+<th colspan="6">
+<a href="./index.php?r=admin/users/add"  id="webinfosubmit">添加用户</a>
+</th>
+</tr>
+</tfoot>
+</table>
+<%/block%>

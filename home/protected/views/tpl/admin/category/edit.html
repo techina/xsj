@@ -1,0 +1,53 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>角色编辑<%/block%>
+<%block name="tab5"%>class="Selected"<%/block%>
+<%block name='tabc5'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/simple.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='ext_js'%>
+<script type="text/javascript" src="./js/admin/category.js"></script>
+<%/block%>
+<%block name='main'%>
+<form action='/index.php?r=admin/category/update' method="post">
+<table class="comm_table">
+<colgroup>
+<col width="15%"></col>
+<col width="80%"></col>
+
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">角色编辑</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<%foreach from=$info item=p%>
+<tr>
+<th style="text-align: center;">◆ 角色名称:</th>
+<th>
+<input type='text' id='cname' name='cname' value='<%$p.cname%>'>
+<input type='hidden' name='id' value='<%$p.id%>'>
+</th>
+</tr>
+<tr>
+<th colspan="2" style="padding-left: 60px">◆ 角色权利：( <font color='red'>勾选表示拥有此权利，取消勾选表示收回此权利</font> )</th>
+</tr>
+<tr>
+<th colspan="2">
+<ul id="powerall">
+<%foreach from=$powerall item=ps%>
+<li><input type="checkbox" name='power[]' class='pow' value='<%$ps.id%>'> <%$ps.pname%></li>
+<%/foreach%>
+</ul>
+</th>
+</tr>
+<%/foreach%>
+</tbody>
+<tfoot>
+<tr><td colspan="2" class="text-center"><input type="image" src="./image/tijiao.png"></td></tr>
+</tfoot>
+</table>
+</form>
+<input type="hidden" id="catepower" value='<%$power%>'>
+<%/block%>

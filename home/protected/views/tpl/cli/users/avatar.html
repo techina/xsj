@@ -1,0 +1,98 @@
+<%extends file="../../comm/hbase.html"%>
+<%block name=title%>修改头像<%/block%>
+<%block name=ext_css%>
+<style type="text/css">
+#selectPic {
+	margin: auto;
+}
+
+td:nth-child(1){
+padding:10px;
+text-align:center;
+}
+#savePic {
+	width: 100px;
+	height: 25px;
+	line-height: 25px;
+	display: block;
+	background-color: #f99;
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+	margin: auto;
+}
+
+.p {
+	padding-left: 150px;
+	margin-top:30px;
+}
+
+#errorRemind {
+	float: right;
+	margin-right: 150px;
+	margin-right: 150px
+}
+</style>
+<%/block%>
+<%block name=ext_js%>
+<script type="text/javascript" src="./js/ajaxupload.js"></script>
+<script type="text/javascript"><!--
+window.onload = function(){
+	var selectPic = document.getElementById("selectPic");
+	var savePic = document.getElementById("savePic");
+	var oRemind = document.getElementById("errorRemind");
+	//存放图片信息的对象
+	var picInfo={};
+	picInfo['username']="<%$un%>";
+	var au=new AjaxUpload(selectPic,{
+		action:"./index.php?r=public/upload",
+		name:"upload",
+		autoSubmit:true,
+		onSubmit:function(file,ext){
+			if(ext && /^(jpg|jpeg|png|gif)$/.test(ext)){
+			}else{	
+				oRemind.style.color = "#ff3300";
+				oRemind.innerHTML = "不支持非图片格式！";
+				return false;
+			}
+		},
+		onComplete:function(file,response){
+			if(response!='fail'){
+				oRemind.innerHTML = "";
+				picInfo['userpic']=response;
+				jQuery("#selectPic").attr('src',response);
+			}else{
+				oRemind.innerHTML = "<font color='red'>上传失败，请重试……</font>";
+			}
+		}
+	});
+
+	savePic.onclick=function(){
+				//
+				jQuery.get('./index.php?r=users/avatar',picInfo,function(data){
+					if(data=='ok')
+						oRemind.innerHTML='保存成功';
+				});
+	}
+};
+</script>
+<%/block%>
+<%block name=main%>
+<div class="jobnavi">
+<span class='span1'>修改头像</span>
+</div>
+<div class='topjobs'>
+<p class='p'>点击图片选择新头像<span id="errorRemind"></span></p>
+<table align='center' border="0"
+	style="margin-top: 30px; margin-bottom: 100px">
+	<tr>
+		<td><img src="./image/cli/default.jpg" width="100px"
+			height="100px" id="selectPic"></img></td>
+	</tr>
+	<tr>
+		<td><a href='javascript:;' id="savePic">确定保存</a></td>
+	</tr>
+</table>
+</div>
+
+<%/block%>

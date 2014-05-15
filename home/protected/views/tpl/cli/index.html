@@ -1,0 +1,42 @@
+<%extends file="../comm/hbase.html"%>
+<%block name=title%>首页<%/block%>
+<%block name=main%>
+<div class="jobnavi">
+<span class='span1'>置顶热帖</span>
+<a href="./index.php?r=forum/post"><span class='span2'></span></a>
+</div>
+<div class='topjobs'>
+<ul class='clearfix'>
+<%section name=us loop=$hlist%>
+<li class='jobinfo'>
+<span style='float:left'><span class="hot"></span>&nbsp;&nbsp;<a href="./index.php?r=forum/info&id=<%$hlist[us].id%>"><%$hlist[us].title%></a></span>
+<span style='float:right;margin-right:20px'><%$hlist[us].ftime%></span>
+<span style='float:right;margin-right:20px'><a href="./index.php?r=forum&un=<%$hlist[us].username%>" onmousemove="javascript:getUserInfo('<%$hlist[us].username%>',event)"  onmouseout="javascript:hiddenUserInfo()"><%$hlist[us].rname%></a></span>
+</li>
+<%sectionelse%>
+<li class='jobinfo'>
+<span style='margin:auto'>暂时没有更多数据……</span>
+</li>
+<%/section%>
+</ul>
+</div>
+<div class="jobnavi">
+<span class='span1'>帖子列表</span>
+<a href="./index.php?r=forum/post"><span class='span2'></span></a>
+</div>
+<div class='topjobs'>
+<ul class='clearfix'>
+<%foreach item=p from=$list%>
+<li class='jobinfo'>
+<span style='float:left'><span class="new"></span>&nbsp;&nbsp;<a href="./index.php?r=forum/info&id=<%$p.id%>"><%$p.title%></a></span>
+<span style='float:right;margin-right:20px'><%$p.ftime%></span>
+<span style='float:right;margin-right:20px'><a href="./index.php?r=forum&un=<%$p.username%>" onmouseover="javascript:getUserInfo('<%$p.username%>',event)" onmouseout="javascript:hiddenUserInfo()"><%$p.rname%></a></span>
+</li>
+<%foreachelse%>
+<li class='jobinfo'>
+<span style='margin:auto'>暂时没有更多数据……</span>
+</li>
+<%/foreach%>
+</ul>
+</div>
+<%/block%>

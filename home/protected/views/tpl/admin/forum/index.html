@@ -1,0 +1,62 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>帖子列表<%/block%>
+<%block name="tab2"%>class="Selected"<%/block%>
+<%block name='tabc2'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='main'%>
+<table class="comm_table">
+<colgroup>
+<col width="40%"></col>
+<col width="12%"></col>
+<col width="15%"></col>
+<col width="6%"></col>
+<col width="30%"></col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="5">帖子列表</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<tr>
+<th style="text-align: center;">标题</th>
+<th>发帖人</th>
+<th>时间</th>
+<th>是否置顶</th>
+<th>操作</th>
+</tr>
+<%foreach from=$info item=p%>
+<tr id="<%$p.id%>">
+<td>
+<span class='tiezi'></span>&nbsp;&nbsp;<a href="./index.php?r=forum/info&id=<%$p.id%>"><%$p.title%></a>
+</td>
+<td>
+<a href="./index.php?r=forum&un=<%$p.username%>" target="_blank"><%$p.rname%></a>
+</td>
+<td><%$p.ftime%></td>
+<td id="is<%$p.id%>"><%if $p.istop==1%>是<%else%>否<%/if%></td>
+<td>
+<%if $p.istop==0%>
+[ <a href='javascript:;' onclick="javascript:marktop(<%$p.id%>,1)">置顶</a> ] <%else%>
+[ <a href='javascript:;' onclick="javascript:marktop(<%$p.id%>,0)">取消置顶</a> ] <%/if%>
+[ <a href='javascript:;' onclick="javascript:deleteforum(<%$p.id%>)">删除</a> ]
+</td>
+</tr>
+
+<%foreachelse%>
+<tr>
+<td colspan="5" style="text-align:center">暂时没有数据...</td>
+</tr>
+<%/foreach%>
+</tbody>
+<tfoot>
+<tr>
+<th colspan="5">
+<%$pages%>
+</th>
+</tr>
+</tfoot>
+</table>
+<%/block%>

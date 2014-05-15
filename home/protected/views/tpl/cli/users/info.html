@@ -1,0 +1,29 @@
+<%extends file="../../comm/hbase.html"%>
+<%block name=title%>我的信息<%/block%>
+<%block name=main%>
+
+<div class="jobnavi">
+<span class='span1'>我的信息</span>
+<a href="./index.php?r=forum/post"><span class='span2'></span></a>
+</div>
+<div class='topjobs'>
+
+<%foreach from=$info item=p%>
+<table class="user_table" border=0>
+<tr><td>账号：</td><td><a href="./index.php?r=forum&un=<%$smarty.session.userinfo.username%>"><%$p.username%></a></td>
+<td rowspan="5"><a href="./index.php?r=users/photo"><img src='<%$p.userpic%>' alt='修改头像' style="width:100px;height:100px;border-radius:50px;margin:auto"></a></td></tr>
+<tr><td>姓名：</td><td><span id='rnameinfo' style="float: left;"><%$p.rname%></span><span style="float: right;"><a href="javascript:;" onclick="$('#newrnameinfotr').toggle();">修改</a></span></td></tr>
+<tr id="newrnameinfotr" style='display: none'><td>&nbsp;</td><td><span style="float: left;"><input type="text" id="newrnameinfo"></span><span style="float: right;"><a href="javascript:;" onclick="javascript:updateInfo('rname')">确定</a></span></td></tr>
+<tr><td>邮箱：</td><td><span id='useremailinfo' style="float: left;"><%$p.useremail%></span><span style="float: right;"><a href="javascript:;" onclick="$('#newuseremailinfotr').toggle();">修改</a></span></td></tr>
+<tr id="newuseremailinfotr" style='display: none'><td>&nbsp;</td><td><span style="float: left;"><input type="text" id="newuseremailinfo"></span><span style="float: right;"><a href="javascript:;" onclick="javascript:updateInfo('useremail')">确定</a></span></td></tr>
+<tr><td>级别：</td><td><%if $p.userlevel=='ordinary'%>普通用户<%else%>管理员<%/if%></td></tr>
+<tr><td>状态：</td><td>正常</td></tr>
+</table>
+
+<%foreachelse%>
+
+<span style='margin:auto'>暂时没有数据……</span>
+<%/foreach%>
+
+</div>
+<%/block%>

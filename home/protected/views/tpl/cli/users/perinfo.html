@@ -1,0 +1,11 @@
+<%foreach from=$info item=p%>
+<table style="height:150px;width:360px;margin:auto;border: none;" border="0">
+<tr><td style="text-align: right;padding-right: 10px">账号：</td><td><a href="./index.php?r=forum&un=<%$smarty.session.userinfo.username%>"><%$p.username%></a></td>
+<td rowspan="5"><a href="./index.php?r=users/photo"><img src='<%$p.userpic%>' alt='修改头像' style="width:100px;height:100px;border-radius:50px"></a></td></tr>
+<tr><td  style="text-align: right;padding-right: 10px">姓名：</td><td><%$p.rname%></td></tr>
+<tr><td  style="text-align: right;padding-right: 10px">邮箱：</td><td><%$p.useremail%></td></tr>
+<tr><td  style="text-align: right;padding-right: 10px">状态：</td><td>正常</td></tr>
+</table>
+<%foreachelse%>
+<p style="margin:20px 0px 0px 30px">暂时没有数据……</p>
+<%/foreach%>

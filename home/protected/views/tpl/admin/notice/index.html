@@ -1,0 +1,69 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>公告列表<%/block%>
+<%block name="tab1"%>class="Selected"<%/block%>
+<%block name='tabc1'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='main'%>
+<table class="comm_table">
+<colgroup>
+<col width="40%"></col>
+<col width="12%"></col>
+<col width="15%"></col>
+<col width="6%"></col>
+<col width="30%"></col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="5">公告列表</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<tr>
+<th style="text-align: center;">公告标题</th>
+<th>发布人</th>
+<th>发布时间</th>
+<th>是否重要</th>
+<th>操作</th>
+</tr>
+<%foreach from=$info item=p%>
+<tr id="<%$p.id%>">
+<td>
+<span class='tiezi'></span>&nbsp;&nbsp;<a href="./index.php?r=notice/info&id=<%$p.id%>"><%$p.title%></a>
+</td>
+<td>
+<%$p.rname%>
+</td>
+<td><%$p.ntime%></td>
+<td id="is<%$p.id%>"><%if $p.isimportant==1%>是<%else%>否<%/if%></td>
+<td>
+[ <a href='./index.php?r=admin/notice/edit&id=<%$p.id%>'>编辑</a> ]
+<%if $p.isimportant==0%>
+[ <a href='javascript:;' onclick="javascript:markimportant(<%$p.id%>,1)">标为重要</a> ] <%else%>
+[ <a href='javascript:;' onclick="javascript:markimportant(<%$p.id%>,0)">取消重要</a> ] <%/if%>
+[ <a href='./index.php?r=admin/docfile&id=<%$p.id%>'>附件</a> ]
+[ <a href='javascript:;' onclick="javascript:deletenotice(<%$p.id%>)">删除</a> ]
+</td>
+</tr>
+
+<%foreachelse%>
+<tr>
+<td colspan="5" style="text-align:center">暂时没有数据...</td>
+</tr>
+<%/foreach%>
+</tbody>
+<tfoot>
+<tr>
+<th colspan="5">
+<%$pages%>
+</th>
+</tr>
+<tr>
+<th colspan="5">
+<a href="./index.php?r=admin/notice/add"  id="webinfosubmit">发布公告</a>
+</th>
+</tr>
+</tfoot>
+</table>
+<%/block%>

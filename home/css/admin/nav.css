@@ -1,0 +1,118 @@
+
+/*页面table总样式*/
+.comm_table{
+width:100%
+}
+.comm_table,.comm_table tr td,.comm_table tbody tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+height:40px;
+padding:5px;
+font-size:14px;
+}
+.comm_table thead tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+background:#34749C;
+height:40px;
+padding:5px 0px 5px 30px;
+font-size:30px;
+color:#fff
+}
+.comm_table tfoot tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+height:40px;
+padding:5px 0px 5px 30px;
+font-size:30px;
+text-align:center;
+}
+.comm_table tr td:nth-child(1),.comm_table tbody tr th:nth-child(1){
+text-align:left;
+padding-left:20px
+}
+.comm_table tr td:nth-child(2),.comm_table  tbody tr th:nth-child(2){
+text-align:center;
+}
+.comm_table tr td:nth-child(3),.comm_table tbody  tr th:nth-child(3){
+text-align:center;
+}
+.comm_table tr td:nth-child(4),.comm_table tbody  tr th:nth-child(4){
+text-align:center;
+}
+.comm_table tr td:nth-child(5),.comm_table tbody  tr th:nth-child(5){
+text-align:center;
+}
+.comm_table tr td:nth-child(6),.comm_table tbody  tr th:nth-child(6){
+text-align:center;
+}
+.comm_table tr td:nth-child(5) a,.comm_table tr td:nth-child(1) a{
+color:#00f;
+}
+
+.comm_table tr td:nth-child(5) a:hover,.comm_table tr td:nth-child(1) a:hover{
+color:#f00;
+}
+
+.text-left{
+text-align:left;
+}
+
+.text-right{
+text-align:right;
+}
+.text-center{
+text-align:center;
+}
+#webinfosubmit{
+width:80px;
+height:40px;
+line-height:40px;
+text-align:center;
+font-size:14px;
+background:#FFB848;
+font-family:'Microsoft YaHei';
+display: block;
+}
+#importBtn{
+width:80px;
+height:40px;
+line-height:40px;
+text-align:center;
+font-size:14px;
+background:#FFB848;
+font-family:'Microsoft YaHei';
+border: none
+}
+#webinfosubmit:hover{
+color:#fff;
+background:#ECA22E;
+cursor: pointer;
+}
+#selectPic{
+float:left;
+margin-top:5px;
+}
+#errorRemind{
+float:left;
+margin-left:20px;
+margin-top:10px;
+}
+#addNewNav{
+display:block;
+width:100px;
+height:40px;
+background:#ddd;
+line-height: 40px;
+text-align: center;
+color: #00f;
+font-size: 15px;
+text-decoration: none;
+border:1px solid #ddd;
+}
+#addNewNav:HOVER{
+color:#fff;
+border:1px solid #ddd;
+background:#AF99AF;
+cursor: pointer;
+}

@@ -1,0 +1,62 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>角色详情<%/block%>
+<%block name="tab5"%>class="Selected"<%/block%>
+<%block name='tabc5'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='main'%>
+<table class="comm_table">
+<colgroup>
+<col width="30%"></col>
+<col width="20%"></col>
+<col width="20%"></col>
+<col width="30%"></col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="4">角色详情</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<tr>
+<th style="text-align: center;">角色名称</th>
+<th>操作人</th>
+<th>操作时间</th>
+<th>操作</th>
+</tr>
+<%foreach from=$info item=p%>
+<tr id="<%$p.id%>">
+<td style="text-align: center;">
+<b><%$p.cname%></b>
+</td>
+<td>
+<%$p.rname%>
+</td>
+<td><%$p.mtime%></td>
+<td>
+[ <a href='./index.php?r=admin/category/edit&id=<%$p.id%>'>编辑</a> ]
+</td>
+</tr>
+<%foreachelse%>
+<tr>
+<td colspan="4" style="text-align:center;">暂时没有可执行操作，您可以编辑添加...</td>
+</tr>
+<%/foreach%>
+</tbody>
+<tfoot>
+<tr>
+<th style="font-size: 16px;color: #f00">
+可执行操作：
+</th>
+<th colspan="3" style="font-size: 14px;color: #f00">
+<%foreach from=$list item=p%>
+<%$p.pname%> 、 
+<%foreachelse%>
+暂时没有可执行操作，您可以编辑添加...
+<%/foreach%>
+</th>
+</tr>
+</tfoot>
+</table>
+<%/block%>

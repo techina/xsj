@@ -1,0 +1,77 @@
+<%extends file="../../comm/mbase.html"%>
+<%block name=title%>导入用户<%/block%>
+<%block name="tab3"%>class="Selected"<%/block%>
+<%block name='tabc3'%>display:inline<%/block%>
+<%block name='ext_css'%>
+<link href="./css/admin/nav.css" rel="stylesheet" type="text/css">
+<%/block%>
+<%block name='ext_js'%>
+<script type="text/javascript" src="./js/ajaxupload.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	var selectPic = document.getElementById("importBtn");
+	var oRemind = document.getElementById("msg");
+	var au=new AjaxUpload(selectPic,{
+		action:"./index.php?r=admin/users/imports",
+		name:"upload",
+		autoSubmit:true,
+		onSubmit:function(file,ext){
+			if(ext && /^(txt|csv)$/.test(ext)){
+			}else{	
+				oRemind.style.color = "#ff3300";
+				oRemind.innerHTML = "不支持的文件格式！";
+				return false;
+			}
+		},
+		onComplete:function(file,response){
+			if(response!='fail'){
+				oRemind.innerHTML = "导入成功，共导入 "+response+" 个用户";
+			}else{
+				oRemind.innerHTML = "<font color='red'>上传失败，请重试……</font>";
+			}
+		}
+	});
+};
+</script>
+<%/block%>
+<%block name='main'%>
+<table class="comm_table">
+<colgroup>
+<col width="8%"></col>
+<col width="25%"></col>
+<col width="20%"></col>
+<col width="20%"></col>
+<col width="30%"></col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="5">导入用户</th>
+</tr>
+</thead>
+<tbody id="tbodydom">
+<tr>
+<td colspan="5" style="text-align:center">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="5" style="text-align:center"><span id='msg'></span></td>
+</tr>
+<tr>
+<td colspan="5" style="text-align:center"><input type="button"  id="importBtn" value='导入用户'></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th colspan="5" style="text-align: left;font-size: 14px">
+<p>1.导入文件格式为 txt 或者 csv 格式</p>
+<p>2.用户信息支持导入的字段依次为 <font color='red'>用户名,密码,邮箱,用户类型(管理员为 admin，普通用户为 ordinary ),真实姓名</font></p>
+<p>3.文件内容书写格式为一行代表一个用户信息，5个字段之间使用英文逗号（<font color='red'>,</font>）隔开，字段书写顺序为 第二条 述说顺序</p>
+<p>4.文件内容书写格式范例：    <font color='red'>username,userpwd,useremail,userlevel,rname</font></p>
+</th>
+</tr>
+<th colspan="5">
+<a href="./index.php?r=admin/users/add"  id="webinfosubmit">添加用户</a>
+</th>
+</tr>
+</tfoot>
+</table>
+<%/block%>

@@ -1,0 +1,77 @@
+.t_pagelink {
+  margin: 20px 0 40px 30px;
+}
+.page {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 28px;
+  color: #7f7f7f;
+  margin-left: 22px;
+}
+.page span,
+.page a {
+  display: inline-block;
+  padding: 0px 10px;
+  background: white;
+  margin: 0 3px;
+  vertical-align: middle;
+}
+.page a {
+  border: 1px #e1e1e1 solid;
+  color: #7f7f7f;
+  text-decoration: none;
+}
+.page span.cur {
+  background-color: #a2cfe0;
+  color: white;
+  border: 1px #a2cfe0 solid;
+}
+.page a:hover,
+.page a:active {
+  border: 1px #a2cfe0 solid;
+  background-color: #a2cfe0;
+  color: white;
+  text-decoration: none;
+}
+.page .prev,
+.page .next {
+  background: url("../../image/cli/all.png")/*tpa=http://www.neitui.me/images/all.png*/ 0 0 no-repeat;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  overflow: hidden;
+  line-height: 300px;
+  padding: 0px;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  -ms-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
+}
+.page .prev {
+  background-position: 0 -163px;
+}
+.page .prev:hover {
+  background-position: -30px -163px;
+  border: 0px;
+}
+.page .next {
+  background-position: -123px -163px;
+}
+.page .next:hover {
+  background-position: -93px -163px;
+  border: 0px;
+}
+
+span.tiezi {
+  display: inline-block;
+  width: 15px;
+  height: 20px;
+  vertical-align: 0px;
+  *vertical-align: middle;
+  margin-left: 5px;
+  background: url("../../image/cli/forum.png") -80px -16px no-repeat;
+}
+
+#tiezititle{width:400px;height:30px;line-height: 30px}
+.tips{font-size: 16px;font-weight: bold;}

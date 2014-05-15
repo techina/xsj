@@ -1,0 +1,29 @@
+<%extends file="../../comm/hbase.html"%>
+<%block name=title%>帖子列表<%/block%>
+<%block name=main%>
+
+<div class="jobnavi">
+<span class='span1'>帖子列表</span>
+<a href="./index.php?r=forum/post"><span class='span2'></span></a>
+</div>
+<div class='topjobs'>
+<ul class='clearfix'>
+<%section name=us loop=$infolist%>
+<li class='jobinfo' id="<%$infolist[us].id%>">
+<span style='float:left'><span class="tiezi"></span>&nbsp;&nbsp;<a href="./index.php?r=forum/info&id=<%$infolist[us].id%>"><%$infolist[us].title%></a></span>
+<%if $smarty.session.userinfo.username==$infolist[us].username%>
+<span style='float:right;margin-right:20px'>[<a href="javascript:;" onclick="javascript:deleteforum(<%$infolist[us].id%>)">删除</a>]</span><%/if%>
+<span style='float:right;margin-right:20px'><%$infolist[us].ftime%></span>
+<span style='float:right;margin-right:20px'><a href="./index.php?r=forum&un=<%$infolist[us].username%>" onmousemove="javascript:getUserInfo('<%$infolist[us].username%>',event)"  onmouseout="javascript:hiddenUserInfo()"><%$infolist[us].rname%></a></span>
+</li>
+<%sectionelse%>
+<li class='jobinfo'>
+<span style='margin:auto'>暂时没有更多数据……</span>
+</li>
+<%/section%>
+</ul>
+</div>
+<%/block%>
+<%block name=pagelist%>
+<%$pages%>
+<%/block%>

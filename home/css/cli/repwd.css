@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #ECECEC;
+	font-family: 微软雅黑
+	}
+
+.dmain{
+width:600px;
+height:400px;
+margin:auto;
+margin-top:100px;
+border:1px solid #dddddd;
+border-bottom-right-radius:100px;
+
+}
+table{
+	width:500px;
+	height: 250px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}a img{border:none}
+span{
+font-size: 12px;
+}
+#email{
+width: 90%;
+height: 30px;
+line-height: 30px
+}
+#tijiao{
+width:120px;
+height: 40px;
+font-size: 20px;
+color: red;
+
+}
+.f{
+font-size: 30px;
+font-family: 微软雅黑;
+color: red;
+}
+p{
+	text-align: left;
+}
+a {
+	text-decoration: none
+}
+
+a:hover {
+	text-decoration: underline;
+	color: red;
+}

@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+/*页面table总样式*/
+.comm_table{
+
+width:100%
+}
+.comm_table,.comm_table tr td{
+border-collapse: collapse;
+border:1px solid #ddd;
+height:40px;
+padding:5px;
+font-size:14px;
+}
+.comm_table thead tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+background:#FFB848;
+height:40px;
+padding:5px 0px 5px 30px;
+font-size:30px;
+color:#fff
+}
+.comm_table tfoot tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+height:40px;
+padding:5px 0px 5px 30px;
+font-size:30px;
+text-align:center;
+}
+.comm_table tr td:nth-child(1){
+text-align:right;
+}
+.comm_table tr td:nth-child(2){
+text-align:left;
+}
+.comm_table tr td:nth-child(3){
+text-align:left;
+color:#AF99AF;
+font-size:12px;
+}
+.comm_table tbody tr:hover,.comm_table tbody tr td:hover{
+background:#F3F3F3;
+color:#000;
+}
+.comm_table tr td input[type="text"]{
+border:1px solid #ddd;
+width:500px;
+height:30px;
+padding-left:10px;
+font-size:16px
+}
+
+.comm_table tr td input[type="text"]:focus{
+border-color:#00f
+}
+
+.text-left{
+text-align:left;
+}
+
+.text-right{
+text-align:right;
+}
+.text-center{
+text-align:center;
+}
+#webinfosubmit{
+width:80px;
+height:40px;
+text-align:center;
+background:#FFB848;
+font-size:16px;
+font-family:'Microsoft YaHei';
+border:none
+}
+#webinfosubmit:hover{
+color:#fff;
+border:1px solid #ddd;
+background:#ECA22E;
+cursor: pointer;
+}
+#selectPic{
+float:left;
+margin-top:5px;
+}
+#errorRemind{
+float:left;
+margin-left:20px;
+margin-top:10px;
+}

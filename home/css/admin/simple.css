@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+.comm_table{
+width:100%
+}
+.comm_table,.comm_table tr td,.comm_table tbody tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+height:40px;
+padding:5px;
+font-size:14px;
+}
+.comm_table thead tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+background:#34749C;
+height:40px;
+padding:5px 0px 5px 30px;
+font-size:30px;
+color:#fff
+}
+.comm_table tfoot tr th{
+border-collapse: collapse;
+border:1px solid #ddd;
+height:40px;
+padding:5px 0px 5px 30px;
+font-size:30px;
+text-align:center;
+}
+#cname{width:400px;height: 35px;line-height: 35px;font-size: 20px;}
+#powerall{ width:900px;padding-left:60px;margin: auto;}
+#powerall li{ width:150px;height: 35px;line-height: 35px;float: left;}
+
+.text-left{
+text-align:left;
+}
+
+.text-right{
+text-align:right;
+}
+.text-center{
+text-align:center;
+}

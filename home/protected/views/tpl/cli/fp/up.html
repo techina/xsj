@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+<title>修改密码</title>
+</head>
+ <style type="text/css">
+ body{background-color: #ECECEC;}
+.dmain{width:600px;height:400px;margin:auto;margin-top:100px;border:1px solid #dddddd;border-bottom-right-radius:100px;text-align: center;}
+table{width:500px;height: 250px;margin-bottom: 10px;margin-top: 10px;}
+a img{border:none}
+span{font-size: 12px;}
+#email{width: 90%;}
+#tijiao{width:120px;height: 40px;font-size: 20px;color: red;}
+.f{font-size: 30px;font-family: 微软雅黑;color: red;}
+p{text-align: left;}
+a {text-decoration: none}
+a:hover {text-decoration: underline;color: red;}
+ </style>
+ <script type="text/javascript">
+ function chpwd() {
+		var np=document.getElementById('newpwd');
+		var n=np.value;
+		var cnp=document.getElementById('cnnewpwd');
+		var cn=cnp.value;
+	 if (n == "") {
+			alert("请输入新密码");
+			np.focus();
+			return false;
+		} else if (cn == "") {
+			alert("请输入确认新密码");
+			cnp.focus();
+			return false;
+		} else if (n.length < 5) {
+			alert("新密码长度不能低于5位！");
+			np.focus();
+			return false;
+		} else if (n == cn) {
+			return true;
+		} else {
+			alert("确认新密码与新密码输入不一致，请重新输入！");
+			cnp.focus();
+			return false;
+		}
+		return true;
+	}
+ </script>
+  <body>
+  <center>
+  <div class="dmain">
+<form action="./index.php?r=fp/modify" id="re"  method="post" onsubmit="return chpwd()">
+<input type="hidden" name="uname" value="<%$uname%>"/>
+<input type='hidden' name='r' value="fp/modify"/>
+<table border="0" align="center">
+<tr><td colspan="2" class="f">修改密码</td></tr>
+<tr><td style="text-align: right">新密码：</td><td><input type="password" name="newpwd" id="newpwd" />*</td></tr>
+<tr><td  style="text-align: right">确认新密码：</td><td><input type="password" name="cnnewpwd" id="cnnewpwd" />*</td></tr>
+<tr><td  style="text-align: center;color:red" colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2" style="text-align: center;"><input type="submit" value="提交" id="tijiao"></td></tr>
+</table>
+</form>  
+<p><a href="/index.php">点这里返回登录……</a></p>
+<hr align="center" style="whdth:80%">  
+ <dl>
+               <dt><strong>修改密码后请妥善保管您的密码！</strong></dt>
+               <dd><span>如果密码遗忘，您可以随时在登录页面点击找回密码。</span></dd>
+             </dl>
+
+</div>
+</center>
+  </body>
+</html>
